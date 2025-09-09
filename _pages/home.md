@@ -10,7 +10,3 @@ header:
     - label: "GitHub"
       url: "https://github.com/Tao-AI-group"
 ---
-
-Dr. Cui Tao's AI group focuses on data standardization and AI models that are applicable in healthcare.
-
-{% include news.html per_page=6 title="News" %}

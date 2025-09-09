@@ -1,0 +1,155 @@
+# _data/team.yml
+
+# Principal Investigator
+- name: Dr. Cui Tao
+  role: Chair of AI&I
+  image: /assets/images/headshot/wildcard_icon.jpg
+  description: >
+    Chair of Artificial Intelligence & Informatics, leading research on AI applications in healthcare.
+  group: Principal Investigator
+
+# Faculty Member
+- name: Dr. Fang Li
+  role: AC1 Faculty
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Co-Investigator focusing on ...
+  group: Faculty Member
+
+- name: Dr. Jianfu Li
+  role: AC1 Faculty
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Co-Investigator focusing on ...
+  group: Faculty Member
+
+# Program Coordinator
+- name: Dr. Lu Kang
+  role: Program Coordinator
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Program Coordinator managing project workflows and collaborations.
+  group: Program Coordinator
+
+- name: Jingna Feng
+  role: Program Coordinator
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Analyst working on clinical data modeling and AI applications.
+  group: Program Coordinator
+
+# Member
+- name: Dr. Yue Yu
+  role: Bioinformatician
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Bioinformatician specializing in genomic and biomedical data analysis.
+  group: Member
+
+- name: Dr. Nan Huo
+  role: Research Associate
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Associate focusing on biomedical data science.
+  group: Member
+
+
+
+- name: Xinyue Hu
+  role: Data Science Analyst
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Analyst developing AI tools for healthcare analytics.
+  group: Member
+
+- name: Dr. Shuteng Niu
+  role: Research Associate
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Associate focusing on ultrasound imaging and AI.
+  group: Member
+
+- name: Dr. Ahmed Abdelhameed
+  role: Research Fellow
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Fellow working on predictive modeling in liver transplantation.
+  group: Member
+
+- name: Dr. George Cao
+  role: Research Fellow
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Fellow in clinical AI applications.
+  group: Member
+
+- name: Dr. Rakesh Kumar
+  role: Research Fellow
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Fellow with interests in biomedical informatics.
+  group: Member
+
+- name: Dr. Avanti Bhandarkar
+  role: Research Fellow
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Fellow working on healthcare AI.
+  group: Member
+
+- name: Dr. Pengze Li
+  role: Research Fellow
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Fellow focusing on ultrasound microvascular imaging and AI.
+  group: Member
+
+- name: Jason Glover
+  role: Associate Data Science Analyst
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Analyst supporting AI-driven healthcare analytics.
+  group: Member
+
+- name: Aaron Dong
+  role: Intern
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Intern contributing to clinical AI research projects.
+  group: Alumni
+
+- name: Yushan Jiang
+  role: Intern
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Intern in data science and biomedical informatics.
+  group: Alumni
+
+- name: Natalie Hu
+  role: Intern
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Intern focusing on AI for healthcare.
+  group: Alumni
+
+- name: Garit Gemeinhardt
+  role: Intern
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Research Fellow working on AI-based clinical decision support.
+  group: Alumni
+
+# Alumni
+- name: Dr. Tiehang Duan
+  role: Research Fellow
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Former Research Fellow specializing in biomedical informatics.
+  group: Alumni
+
+- name: Yifeng Xu
+  role: Intern
+  image: /assets/images/headshot/wildcard_icon.jpg
+  # description: >
+  #   Former Intern in AI for healthcare analytics.
+  group: Alumni

@@ -1,0 +1,80 @@
+.news-section {
+  margin: 1.5rem 0 2rem;
+}
+.news-header {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: .75rem;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* 通用卡片 */
+.news-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+.news-title { margin: .35rem 0 .25rem; font-size: 1.05rem; }
+.news-meta { font-size: .88rem; opacity: .85; }
+.news-tag { display:inline-block; font-size:.75rem; padding:.1rem .45rem; border-radius:999px; background:rgba(42,122,226,.12); color:#1e63c6; margin-right:.4rem; }
+.news-date { opacity: .85; }
+
+/* text 卡片 */
+.news-card--text .news-body { color: #374151; }
+
+/* media 卡片 */
+.news-card--media {
+  display: flex;
+  flex-direction: column;   /* 改成上下布局 */
+  align-items: center;      /* 让图片与文字居中 */
+  text-align: center;       /* 文本居中 */
+}
+
+.news-media {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+.news-media img {
+  width: 100%;              /* 占满卡片宽度 */
+  height: auto;             /* 保持比例 */
+  max-height: 220px;        /* 可选：限制一下最大高度 */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.news-content { 
+  width: 100%;
+}
+.news-actions {
+  margin-top: .5rem; 
+  display:flex; 
+  gap:.5rem; 
+  flex-wrap: wrap; 
+  justify-content: center;  /* 按钮也居中 */
+}
+
+.news-btn {
+  display:inline-block; padding:.4rem .7rem; border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.08); text-decoration:none;
+  background:#fff; font-weight:600; font-size:.9rem;
+}
+.news-btn--primary { background:#2a7ae2; color:#fff; border-color:transparent; }
+
+/* 分页器 */
+.news-pager {
+  display:flex; align-items:center; justify-content:center;
+  gap:.75rem; margin-top: 1rem;
+}
+.news-status { opacity:.8; }
+
+@media (max-width: 640px) {
+  .news-card--media { flex-direction: column; }
+  .news-media img { width: 100%; height: 160px; }
+}

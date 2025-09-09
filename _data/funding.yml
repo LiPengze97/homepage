@@ -1,0 +1,14 @@
+- title: "ACTS (AD Clinical Trial Simulation)"
+  excerpt: "Advanced informatics for clinical trial simulation with large-scale EHR."
+  url: "https://tao-ai-group.github.io/home/posts/ACTS-md/"
+  image_path: "/assets/images/funding/acts.jpg"
+
+- title: "MCC-AD"
+  excerpt: "Studying MCC impact on Alzheimer's disease using harmonized EHR."
+  url: "https://mcc-ad.github.io/home/"
+  image_path: "/assets/images/funding/mccad.jpg"
+
+- title: "IMPACT MH"
+  excerpt: "Coordinating individually measured phenotypes to advance mental health research."
+  url: "#"
+  image_path: "/assets/images/funding/impactmh.jpg"

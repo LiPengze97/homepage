@@ -1,0 +1,23 @@
+- image_path: /assets/image/main_banner.jpg
+  alt: "Customizable"
+  title: "Model Customization"
+  excerpt: "We develop novel AI architectures tailored to the specific demands of clinical practice."
+  url: "#"
+  btn_label: "Learn more"
+  btn_class: "btn--primary"
+
+- image_path: /assets/image/main_banner.jpg
+  alt: "Responsive"
+  title: "Multimodal Data"
+  excerpt: "From imaging to signals to EHR, we work on modeling complex heterogeneous clinical data."
+  url: "#"
+  btn_label: "Explore"
+  btn_class: "btn--primary"
+
+- image_path: /assets/image/main_banner.jpg
+  alt: "Open Source"
+  title: "Open Science"
+  excerpt: "We believe in reproducibility and openness — see our publications and released models."
+  url: "#"
+  btn_label: "See projects"
+  btn_class: "btn--primary"

@@ -1,0 +1,49 @@
+# 类型说明：
+# type: text  -> 纯文本新闻（简洁块）
+# type: media -> 图文新闻卡片（含配图、按钮）
+# date: YYYY-MM-DD
+# tag: 可选标签
+# actions: 按钮列表（label/url/primary）
+
+- type: text
+  date: 2025-09-30
+  tag: Announcement
+  title: "Grand Opening — Mayo Clinic Florida AI & Informatics Department"
+  body: |
+    📍 Birdsall 142  
+    🎀 Ribbon-cutting  
+    🤝 Open house & networking  
+
+    **Program:**  
+    1. Remarks by **Dr. Cui Tao** & leadership  
+    2. Ribbon-cutting  
+    3. Networking
+
+- type: media
+  date: 2025-09-30
+  tag: Event
+  title: "Grand Opening Highlights"
+  body: "Thank you to everyone who joined our opening! Photos, program, and press coverage are now available."
+  image: /assets/images/news/birdsall.jpg
+  actions:
+    - label: "View Recap"
+      url: "https://www.mayoclinic.org/"
+      primary: true
+    - label: "Location"
+      url: "https://www.mayoclinic.org/"
+
+- type: text
+  date: 2025-08-15
+  tag: Paper
+  title: "New JAMIA publication accepted"
+  body: "RefAI accepted to *JAMIA*. Preprint and code will be released soon."
+
+- type: media
+  date: 2025-08-01
+  tag: Project
+  title: "MCC-AD releases new EHR harmonization pipeline"
+  body: "End-to-end tools for multi-site data interoperability and cohort selection."
+  image: /assets/images/funding/ACTs.png
+  actions:
+    - label: "Project Site"
+      url: "https://mcc-ad.github.io/home/"

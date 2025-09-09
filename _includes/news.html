@@ -1,0 +1,143 @@
+{%- comment -%}
+用法（首页）：
+{% include news.html per_page=6 title="News" %}
+
+可选参数：
+- per_page：每页条数（默认 6）
+- title：区块标题（默认 "News"）
+{%- endcomment -%}
+
+{%- assign _per_page = include.per_page | default: 6 -%}
+{%- assign _title     = include.title     | default: "News" -%}
+
+<div id="news-root" class="news-section" data-per-page="{{ _per_page }}">
+  <div class="news-header">
+    <h2>{{ _title }}</h2>
+  </div>
+
+  {%- comment -%} 把数据变成结构化 JSON，供前端分页使用 {%- endcomment -%}
+  {%- assign items = site.data.news | sort: "date" | reverse -%}
+  <script type="application/json" id="news-json">
+  [
+  {%- for n in items -%}
+    {
+      "type": "{{ n.type | escape }}",
+      "date": "{{ n.date | escape }}",
+      "tag": {{ n.tag | jsonify }},
+      "title": {{ n.title | jsonify }},
+      "body_md": {{ n.body | jsonify }},
+      "image": {{ n.image | default: "/assets/images/news/placeholder.jpg" | relative_url | jsonify }},
+      "actions": {{ n.actions | jsonify }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+  ]
+  </script>
+
+  <div class="news-grid" id="news-grid" aria-live="polite"></div>
+
+  <nav class="news-pager" id="news-pager" aria-label="News pagination" hidden>
+    <button class="news-btn" id="news-prev" disabled>← Previous</button>
+    <span id="news-status" class="news-status"></span>
+    <button class="news-btn news-btn--primary" id="news-next">Next →</button>
+  </nav>
+</div>
+
+<script>
+(function () {
+  const root = document.getElementById('news-root');
+  if (!root) return;
+
+  // 读取参数
+  const PER_PAGE = parseInt(root.dataset.perPage || '6', 10);
+  const data = JSON.parse(document.getElementById('news-json').textContent || '[]');
+  const grid = document.getElementById('news-grid');
+  const pager = document.getElementById('news-pager');
+  const prevBtn = document.getElementById('news-prev');
+  const nextBtn = document.getElementById('news-next');
+  const statusEl = document.getElementById('news-status');
+
+  // URL 查询参数：?news_page=2
+  function getPageFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const p = parseInt(params.get('news_page') || '1', 10);
+    return Number.isFinite(p) && p > 0 ? p : 1;
+  }
+  function setPageToURL(p) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('news_page', String(p));
+    window.history.replaceState({}, '', url);
+  }
+
+  const total = data.length;
+  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+  let page = Math.min(getPageFromURL(), totalPages);
+
+  function markdownify(md) {
+    // 极简 MD 处理：换行-><br>，**bold**，*em*
+    if (!md) return '';
+    let html = md
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g,'<em>$1</em>')
+      .replace(/\n\n/g,'</p><p>')
+      .replace(/\n/g,'<br>');
+    return '<p>'+html+'</p>';
+  }
+
+  function renderCard(item) {
+    const tag = item.tag ? `<span class="news-tag">${item.tag}</span>` : '';
+    const date = item.date ? `<span class="news-date">${item.date}</span>` : '';
+    const meta = (tag || date) ? `<div class="news-meta">${tag}${tag && date ? ' · ' : ''}${date}</div>` : '';
+
+    if (item.type === 'media') {
+      const actions = Array.isArray(item.actions) ? item.actions.map(a => {
+        const cls = 'news-btn' + (a.primary ? ' news-btn--primary' : '');
+        return `<a class="${cls}" href="${a.url}">${a.label}</a>`;
+      }).join('') : '';
+
+      return `
+      <article class="news-card news-card--media">
+        <div class="news-media">
+          <img src="${item.image}" alt="${item.title}">
+        </div>
+        <div class="news-content">
+          ${meta}
+          <h3 class="news-title">${item.title}</h3>
+          <div class="news-body">${markdownify(item.body_md)}</div>
+          ${actions ? `<div class="news-actions">${actions}</div>` : ''}
+        </div>
+      </article>`;
+    }
+
+    // text
+    return `
+    <article class="news-card news-card--text">
+      ${meta}
+      <h3 class="news-title">${item.title}</h3>
+      <div class="news-body">${markdownify(item.body_md)}</div>
+    </article>`;
+  }
+
+  function render() {
+    const start = (page - 1) * PER_PAGE;
+    const subset = data.slice(start, start + PER_PAGE);
+    grid.innerHTML = subset.map(renderCard).join('');
+
+    // 分页器
+    if (totalPages > 1) {
+      pager.hidden = false;
+      prevBtn.disabled = page <= 1;
+      nextBtn.disabled = page >= totalPages;
+      statusEl.textContent = `Page ${page} / ${totalPages}`;
+    } else {
+      pager.hidden = true;
+    }
+    setPageToURL(page);
+  }
+
+  prevBtn?.addEventListener('click', () => { if (page > 1) { page--; render(); }});
+  nextBtn?.addEventListener('click', () => { if (page < totalPages) { page++; render(); }});
+
+  render();
+})();
+</script>
